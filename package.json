@@ -16,14 +16,17 @@
     "prettier:write": "prettier --write \"**/*.{ts,tsx}\"",
     "test": "npm run prettier:check && npm run lint && npm run typecheck && npm run jest",
     "storybook": "start-storybook -p 7001",
-    "storybook:build": "build-storybook"
+    "storybook:build": "build-storybook",
+    "predev": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.6",
     "@emotion/react": "^11.10.4",
     "@emotion/server": "^11.10.0",
     "@mantine/carousel": "5.10.2",
     "@mantine/core": "5.10.2",
     "@mantine/dates": "5.10.2",
+    "@mantine/form": "^5.10.2",
     "@mantine/hooks": "5.10.2",
     "@mantine/next": "5.10.2",
     "@mantine/notifications": "5.10.2",
@@ -33,12 +36,20 @@
     "cookies-next": "^2.1.1",
     "dayjs": "^1.11.6",
     "embla-carousel-react": "^7.0.3",
+    "graphql": "^16.6.0",
     "next": "13.1.6",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "recoil": "^0.7.6"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
+    "@graphql-codegen/cli": "^2.16.5",
+    "@graphql-codegen/introspection": "^2.2.3",
+    "@graphql-codegen/typescript": "^2.8.8",
+    "@graphql-codegen/typescript-operations": "^2.5.13",
+    "@graphql-codegen/typescript-react-apollo": "^3.3.7",
+    "@graphql-codegen/typescript-resolvers": "^2.7.13",
     "@next/eslint-plugin-next": "^12.1.4",
     "@storybook/react": "^6.5.13",
     "@testing-library/dom": "^8.12.0",

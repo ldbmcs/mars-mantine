@@ -1,0 +1,7 @@
+fragment user on User {
+    id
+    name
+    mobile
+    email
+    createdAt
+}
