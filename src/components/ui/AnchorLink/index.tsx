@@ -1,6 +1,6 @@
-import React, { HTMLAttributeAnchorTarget } from 'react';
-import { Anchor } from '@mantine/core';
-import Link, { LinkProps } from 'next/link';
+import React, { HTMLAttributeAnchorTarget } from 'react'
+import { Anchor } from '@mantine/core'
+import Link, { LinkProps } from 'next/link'
 
 interface Props extends LinkProps {
   text?: string
@@ -8,9 +8,9 @@ interface Props extends LinkProps {
 }
 
 const AnchorLink = ({ href, children, text, target, ...restProps }: React.PropsWithChildren<Props>) => (
-    <Link href={href || ''} target={target} {...restProps}>
-      <Anchor>{children ?? text}</Anchor>
-    </Link>
-  );
+  <Link href={href || ''} target={target} {...restProps}>
+    <Anchor>{children ?? text}</Anchor>
+  </Link>
+)
 
-export default AnchorLink;
+export default AnchorLink

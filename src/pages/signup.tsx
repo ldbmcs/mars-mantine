@@ -1,13 +1,13 @@
-import { Button, Container, Paper, PasswordInput, Text, TextInput, Title } from '@mantine/core';
-import { FC } from 'react';
-import { useForm } from '@mantine/form';
-import router from 'next/router';
-import { Login } from '../config/constants/routerPath';
-import { graphqlErrorCatch } from '../utils';
-import { useSignupMutation } from '../types/domain';
+import { Button, Container, Paper, PasswordInput, Text, TextInput, Title } from '@mantine/core'
+import { FC } from 'react'
+import { useForm } from '@mantine/form'
+import router from 'next/router'
+import { Login } from 'config/constants/routerPath'
+import { graphqlErrorCatch } from '../utils'
+import { useSignupMutation } from 'types/domain'
 
 const SignUp: FC = () => {
-  const [signUpMutation] = useSignupMutation();
+  const [signUpMutation] = useSignupMutation()
   const form = useForm({
     initialValues: {
       mobile: '',
@@ -18,9 +18,9 @@ const SignUp: FC = () => {
     validate: {
       // principal: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
     },
-  });
+  })
   const handleSubmit = async () => {
-    const { mobile, name, password } = form.values;
+    const { mobile, name, password } = form.values
     try {
       const { data } = await signUpMutation({
         variables: {
@@ -30,15 +30,15 @@ const SignUp: FC = () => {
             password,
           },
         },
-      });
+      })
       if (data?.signUpUser) {
-        await router.replace(Login);
+        await router.replace(Login)
       }
     } catch (err: any) {
-      const { graphQLErrors } = err;
-      graphqlErrorCatch(graphQLErrors);
+      const { graphQLErrors } = err
+      graphqlErrorCatch(graphQLErrors)
     }
-  };
+  }
   return (
     <Container size={420} my={40}>
       <Title
@@ -58,13 +58,20 @@ const SignUp: FC = () => {
         <form onSubmit={form.onSubmit(handleSubmit)}>
           <TextInput label="UserName" placeholder="you@mantine.dev" required {...form.getInputProps('name')} />
           <TextInput label="Mobile" placeholder="your name" mt="md" required {...form.getInputProps('mobile')} />
-          <PasswordInput label="Password" placeholder="Your password" required mt="md" {...form.getInputProps('password')} />
+          <PasswordInput
+            label="Password"
+            placeholder="Your password"
+            required
+            mt="md"
+            {...form.getInputProps('password')}
+          />
           <Button fullWidth mt="xl" type="submit">
             注册
           </Button>
         </form>
       </Paper>
-    </Container>);
-};
+    </Container>
+  )
+}
 
-export default SignUp;
+export default SignUp

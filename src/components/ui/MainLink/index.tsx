@@ -1,7 +1,7 @@
-import React, { FC, ReactNode } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { NavLink, Center } from '@mantine/core';
+import React, { FC, ReactNode } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { NavLink, Center } from '@mantine/core'
 
 interface MainLinkProps {
   pathname: string
@@ -13,12 +13,12 @@ interface MainLinkProps {
 }
 
 const MainLink: FC<MainLinkProps> = (props) => {
-  const { pathname, icon, iconActive, label, activePathNames, className = '' } = props;
+  const { pathname, icon, iconActive, label, activePathNames, className = '' } = props
   const {
     pathname: currentPath,
     query: { appId },
-  } = useRouter();
-  const active = currentPath === pathname || activePathNames?.includes(currentPath);
+  } = useRouter()
+  const active = currentPath === pathname || activePathNames?.includes(currentPath)
 
   return (
     <Link href={{ pathname, query: { appId } }} passHref>
@@ -34,7 +34,7 @@ const MainLink: FC<MainLinkProps> = (props) => {
         className={className}
       />
     </Link>
-  );
-};
+  )
+}
 
-export default MainLink;
+export default MainLink

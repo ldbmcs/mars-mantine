@@ -1,1 +1,1 @@
-export type ColorSchemeType = 'light' | 'dark';
+export type ColorSchemeType = 'light' | 'dark'

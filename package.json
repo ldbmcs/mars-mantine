@@ -36,6 +36,7 @@
     "cookies-next": "^2.1.1",
     "dayjs": "^1.11.6",
     "embla-carousel-react": "^7.0.3",
+    "eslint-config-next": "^13.1.6",
     "graphql": "^16.6.0",
     "next": "13.1.6",
     "react": "18.2.0",

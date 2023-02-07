@@ -1,6 +1,6 @@
-import { GraphQLError } from 'graphql';
-import { GraphQLErrors } from '@apollo/client/errors';
-import { message } from '../components/ui';
+import { GraphQLError } from 'graphql'
+import { GraphQLErrors } from '@apollo/client/errors'
+import { message } from '../components/ui'
 
 interface HandleErrorOptions {
   graphQLErrors?: GraphQLError[] | GraphQLErrors
@@ -10,26 +10,26 @@ interface HandleErrorOptions {
 
 function showDefaultMessage(errorMessage?: string): void {
   if (errorMessage) {
-    message.error(errorMessage);
+    message.error(errorMessage)
   }
 }
 
 function graphqlErrorCatch(options: HandleErrorOptions): void {
   if (!options.graphQLErrors || !options.mapping) {
-    showDefaultMessage(options.defaultMessage);
-    return;
+    showDefaultMessage(options.defaultMessage)
+    return
   }
-  let matching: boolean = false;
+  let matching: boolean = false
   options.graphQLErrors.forEach(({ extensions }) => {
-    const configMessage = options.mapping?.get(extensions?.code as string);
+    const configMessage = options.mapping?.get(extensions?.code as string)
     if (configMessage) {
-      showDefaultMessage(configMessage);
-      matching = true;
+      showDefaultMessage(configMessage)
+      matching = true
     }
-  });
+  })
   if (!matching) {
-    showDefaultMessage(options.defaultMessage);
+    showDefaultMessage(options.defaultMessage)
   }
 }
 
-export default graphqlErrorCatch;
+export default graphqlErrorCatch
