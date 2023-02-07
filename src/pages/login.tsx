@@ -4,10 +4,10 @@ import { useForm } from '@mantine/form';
 import router from 'next/router';
 import { useSetRecoilState } from 'recoil';
 import appContext from '../service';
-import { Home } from '../config/constants/routerPath';
-import { stateCurrentUser } from '../states/users';
+import { Home } from 'config/constants/routerPath';
+import { stateCurrentUser } from 'states/users';
 import { graphqlErrorCatch } from '../utils';
-import { User, useSignInMutation } from '../types/domain';
+import { User, useSignInMutation } from 'types/domain';
 
 const Login: FC = () => {
   const setCurrentUser = useSetRecoilState(stateCurrentUser);

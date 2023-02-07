@@ -1,25 +1,16 @@
-import React, { useState } from 'react';
-import NextApp, { AppProps, AppContext } from 'next/app';
-import { getCookie, setCookie } from 'cookies-next';
+import React from 'react';
+import NextApp, { AppContext } from 'next/app';
 import Head from 'next/head';
-import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
+import { MantineProvider } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
 import { ApolloProvider } from '@apollo/client';
-import client from '../../plugins/apollo/client';
 import { RecoilRoot } from 'recoil';
+import { AppPropsWithLayout } from 'types/nextCustomType';
+import client from '../plugins/apollo/client';
 
-export default function App(props: AppProps & { colorScheme: ColorScheme }) {
-  const { Component, pageProps } = props;
-  const [colorScheme, setColorScheme] = useState<ColorScheme>(props.colorScheme);
-
-  const toggleColorScheme = (value?: ColorScheme) => {
-    const nextColorScheme = value || (colorScheme === 'dark' ? 'light' : 'dark');
-    setColorScheme(nextColorScheme);
-    setCookie('mantine-color-scheme', nextColorScheme, { maxAge: 60 * 60 * 24 * 30 });
-  };
-
-  return (
-    <>
+const App = ({ Component, pageProps }: AppPropsWithLayout) => {
+  const getLayout = Component.getLayout ?? ((page) => page);
+  return (<>
       <Head>
         <title>Mantine next example</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
@@ -28,23 +19,22 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
 
       <RecoilRoot>
         <ApolloProvider client={client}>
-          <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-            <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
+            <MantineProvider withGlobalStyles withNormalizeCSS>
               <NotificationsProvider>
-                <Component {...pageProps} />
+                {getLayout(<Component {...pageProps} />, pageProps)}
               </NotificationsProvider>
             </MantineProvider>
-          </ColorSchemeProvider>
         </ApolloProvider>
       </RecoilRoot>
-    </>
+          </>
   );
-}
+};
 
 App.getInitialProps = async (appContext: AppContext) => {
   const appProps = await NextApp.getInitialProps(appContext);
   return {
     ...appProps,
-    colorScheme: getCookie('mantine-color-scheme', appContext.ctx) || 'light',
   };
 };
+
+export default App;

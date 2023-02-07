@@ -1,4 +1,4 @@
-export const Home = '/home';
+export const Home = '/dashboard';
 // const ApplicationPrefix = `${ApplicationDefault}/[appId]`;
 
 export const Index = '/';
@@ -8,6 +8,9 @@ export const Terms = '/terms';
 export const Privacy = '/privacy';
 export const Institute = 'https://howxm.com/institute';
 export const PasswordReset = '/password/reset';
+
+export const Dashboard = '/dashboard';
+export const Settings = '/settings';
 
 export const NotFound = '/404';
 
