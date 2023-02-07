@@ -6,27 +6,13 @@ import {
   IconDatabaseImport,
   IconFingerprint,
   IconKey,
-  IconLogout,
   IconReceipt2,
   IconSettings,
-  IconSwitchHorizontal,
 } from '@tabler/icons'
 
 const useStyles = createStyles((theme, _params, getRef) => {
   const icon = getRef('icon')
   return {
-    header: {
-      paddingBottom: theme.spacing.md,
-      marginBottom: theme.spacing.md * 1.5,
-      borderBottom: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]}`,
-    },
-
-    footer: {
-      paddingTop: theme.spacing.md,
-      marginTop: theme.spacing.md,
-      borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]}`,
-    },
-
     link: {
       ...theme.fn.focusStyles(),
       display: 'flex',
@@ -97,18 +83,6 @@ const Nav: FC = () => {
   return (
     <Navbar width={{ sm: 300 }} p="md">
       <Navbar.Section grow>{links}</Navbar.Section>
-
-      <Navbar.Section className={classes.footer}>
-        <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
-          <IconSwitchHorizontal className={classes.linkIcon} stroke={1.5} />
-          <span>Change account</span>
-        </a>
-
-        <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
-          <IconLogout className={classes.linkIcon} stroke={1.5} />
-          <span>Logout</span>
-        </a>
-      </Navbar.Section>
     </Navbar>
   )
 }
