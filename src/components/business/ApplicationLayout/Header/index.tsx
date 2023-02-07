@@ -6,8 +6,8 @@ import { Home } from 'config/constants/routerPath'
 import { Logo } from 'components/ui'
 
 const MarsHeader = () => (
-  <Header height={52} px="lg">
-    <Group position="apart" className="h-full">
+  <Header height={52} px="lg" display="flex">
+    <Group position="apart" w={'100%'}>
       <Group position="left" spacing="lg">
         <Logo href={Home} />
       </Group>

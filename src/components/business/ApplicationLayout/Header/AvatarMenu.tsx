@@ -1,5 +1,5 @@
 import { Avatar, Menu, UnstyledButton } from '@mantine/core'
-import { IconLogout, IconUserCircle } from '@tabler/icons'
+import { IconLogout, IconSettings, IconUserCircle } from '@tabler/icons'
 import React from 'react'
 import { useRecoilState } from 'recoil'
 import { stateCurrentUser } from 'states/users'
@@ -22,20 +22,18 @@ const AvatarMenu = () => {
   }
 
   return (
-    <Menu width={200} shadow="sm" position="bottom-end">
+    <Menu width={150} shadow="md" position="bottom-end">
       <Menu.Target>
         <UnstyledButton>
-          <Avatar size={28} radius="xl">
-            {currentUser?.name}
+          <Avatar size={30} radius="xl">
+            {currentUser?.name || 'ldbmcs'}
           </Avatar>
         </UnstyledButton>
       </Menu.Target>
       <Menu.Dropdown>
-        <Menu.Item px="md" py="sm" icon={<IconUserCircle size={20} stroke={1.5} />}>
-          我的账户
-        </Menu.Item>
-        <Menu.Divider my="xs" />
-        <Menu.Item px="md" py="sm" icon={<IconLogout size={20} stroke={1.5} />} color="red" onClick={handleLogout}>
+        <Menu.Item icon={<IconSettings size={20} stroke={1.5} />}>设置</Menu.Item>
+        <Menu.Item icon={<IconUserCircle size={20} stroke={1.5} />}>我的账户</Menu.Item>
+        <Menu.Item icon={<IconLogout size={20} stroke={1.5} />} color="red" onClick={handleLogout}>
           退出登录
         </Menu.Item>
       </Menu.Dropdown>
