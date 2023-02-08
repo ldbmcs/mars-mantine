@@ -1,7 +1,5 @@
 import React, { FC } from 'react'
 import { Image, useMantineTheme } from '@mantine/core'
-import logoLightImg from './logo-light.png'
-import logoDarkImg from './logo-dark.png'
 import { Home } from 'config/constants/routerPath'
 import { ColorSchemeType } from './type'
 import { AnchorLink } from '..'
@@ -18,7 +16,7 @@ const LogoImage: FC<LogoImageProps> = ({ colorScheme }) => {
   const { colorScheme: defaultColorScheme } = useMantineTheme()
   return (
     <Image
-      src={(colorScheme ?? defaultColorScheme) === 'dark' ? logoLightImg.src : logoDarkImg.src}
+      src="https://static-prod.howxm.com/_next/static/media/logo-dark.9bdb8b86.png"
       alt="xm-logo"
       width={80}
       height={32}
