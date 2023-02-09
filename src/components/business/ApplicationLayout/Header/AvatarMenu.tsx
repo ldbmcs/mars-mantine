@@ -25,8 +25,8 @@ const AvatarMenu = () => {
     <Menu width={150} shadow="md" position="bottom-end">
       <Menu.Target>
         <UnstyledButton>
-          <Avatar size={30} radius="xl">
-            {currentUser?.name || 'ldbmcs'}
+          <Avatar size={30} radius="xl" color="cyan">
+            {currentUser?.name || 'dcs'}
           </Avatar>
         </UnstyledButton>
       </Menu.Target>
