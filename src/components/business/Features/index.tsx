@@ -57,7 +57,7 @@ export function Features() {
   ))
 
   return (
-    <div className={classes.wrapper}>
+    <div className={classes.wrapper} id="features">
       <Grid gutter={80}>
         <Col span={12} md={5}>
           <Title className={classes.title} order={2}>

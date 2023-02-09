@@ -78,7 +78,7 @@ export default function HomePage() {
   const siteHeaderLinks = {
     links: [
       {
-        link: '/about',
+        link: '#features',
         label: 'Features',
       },
       {
@@ -90,7 +90,7 @@ export default function HomePage() {
         label: 'Learn',
       },
       {
-        link: '/community',
+        link: '#contactUs',
         label: 'Community',
       },
     ],

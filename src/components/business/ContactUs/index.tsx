@@ -92,7 +92,7 @@ export function ContactUs() {
   const { classes } = useStyles()
 
   return (
-    <Paper shadow="md" radius="lg">
+    <Paper shadow="md" radius="lg" id="contactUs">
       <div className={classes.wrapper}>
         <div className={classes.contacts}>
           <Text size="lg" weight={700} className={classes.title} sx={{ color: '#fff' }}>

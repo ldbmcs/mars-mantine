@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { createStyles, Header, Container, Group, Burger, Paper, Transition } from '@mantine/core'
+import React, { useState } from 'react'
+import { Burger, Button, Container, createStyles, Group, Header, Paper, Transition } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import { MantineLogo } from '@mantine/ds'
 
@@ -74,6 +74,13 @@ const useStyles = createStyles((theme) => ({
   },
 }))
 
+const scrollToAnchor = (anchorName: string) => {
+  let anchorElement = document.body.querySelector(anchorName)
+  if (anchorElement) {
+    anchorElement.scrollIntoView()
+  }
+}
+
 interface HeaderResponsiveProps {
   links: { link: string; label: string }[]
 }
@@ -81,21 +88,20 @@ interface HeaderResponsiveProps {
 export function SiteHeader({ links }: HeaderResponsiveProps) {
   const [opened, { toggle, close }] = useDisclosure(false)
   const [active, setActive] = useState(links[0].link)
-  const { classes, cx } = useStyles()
+  const { classes } = useStyles()
 
   const items = links.map((link) => (
-    <a
+    <Button
       key={link.label}
-      href={link.link}
-      className={cx(classes.link, { [classes.linkActive]: active === link.link })}
-      onClick={(event) => {
-        event.preventDefault()
+      variant={link.link === active ? 'filled' : 'subtle'}
+      onClick={() => {
+        scrollToAnchor(link.link)
         setActive(link.link)
         close()
       }}
     >
       {link.label}
-    </a>
+    </Button>
   ))
 
   return (
