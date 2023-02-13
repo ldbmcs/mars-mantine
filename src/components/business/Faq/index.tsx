@@ -25,7 +25,7 @@ const placeholder =
 export function Faq() {
   const { classes } = useStyles()
   return (
-    <div className={classes.wrapper}>
+    <div className={classes.wrapper} id="faq">
       <Container size="lg">
         <Grid id="faq-grid" gutter={50}>
           <Col span={12} md={6}>

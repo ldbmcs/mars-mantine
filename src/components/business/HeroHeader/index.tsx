@@ -1,86 +1,105 @@
-import { createStyles, Overlay, Container, Title, Button, Text } from '@mantine/core'
+import { createStyles, Image, Container, Title, Button, Group, Text, List, ThemeIcon } from '@mantine/core'
+import { IconCheck } from '@tabler/icons'
 
 const useStyles = createStyles((theme) => ({
-  hero: {
-    position: 'relative',
-    backgroundImage:
-      'url(https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
+  inner: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    paddingTop: theme.spacing.xl * 2,
+    paddingBottom: theme.spacing.xl * 4,
   },
 
-  container: {
-    height: 700,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-end',
-    alignItems: 'flex-start',
-    paddingBottom: theme.spacing.xl * 6,
-    zIndex: 1,
-    position: 'relative',
+  content: {
+    maxWidth: 480,
+    marginRight: theme.spacing.xl * 3,
 
-    [theme.fn.smallerThan('sm')]: {
-      height: 500,
-      paddingBottom: theme.spacing.xl * 3,
+    [theme.fn.smallerThan('md')]: {
+      maxWidth: '100%',
+      marginRight: 0,
     },
   },
 
   title: {
-    color: theme.white,
-    fontSize: 60,
+    color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    fontSize: 44,
+    lineHeight: 1.2,
     fontWeight: 900,
-    lineHeight: 1.1,
-
-    [theme.fn.smallerThan('sm')]: {
-      fontSize: 40,
-      lineHeight: 1.2,
-    },
 
     [theme.fn.smallerThan('xs')]: {
       fontSize: 28,
-      lineHeight: 1.3,
-    },
-  },
-
-  description: {
-    color: theme.white,
-    maxWidth: 600,
-
-    [theme.fn.smallerThan('sm')]: {
-      maxWidth: '100%',
-      fontSize: theme.fontSizes.sm,
     },
   },
 
   control: {
-    marginTop: theme.spacing.xl * 1.5,
-
-    [theme.fn.smallerThan('sm')]: {
-      width: '100%',
+    [theme.fn.smallerThan('xs')]: {
+      flex: 1,
     },
+  },
+
+  image: {
+    flex: 1,
+
+    [theme.fn.smallerThan('md')]: {
+      display: 'none',
+    },
+  },
+
+  highlight: {
+    position: 'relative',
+    backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
+    borderRadius: theme.radius.sm,
+    padding: '4px 12px',
   },
 }))
 
 export function HeroHeader() {
   const { classes } = useStyles()
-
   return (
-    <div className={classes.hero}>
-      <Overlay
-        gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, .65) 40%)"
-        opacity={1}
-        zIndex={0}
-      />
-      <Container className={classes.container}>
-        <Title className={classes.title}>A fully featured React components library</Title>
-        <Text className={classes.description} size="xl" mt="xl">
-          Build fully functional accessible web applications faster than ever – Mantine includes more than 120
-          customizable components and hooks to cover you in any situation
-        </Text>
+    <div id="heroHeader">
+      <Container>
+        <div className={classes.inner}>
+          <div className={classes.content}>
+            <Title className={classes.title}>
+              A <span className={classes.highlight}>modern</span> React <br /> components library
+            </Title>
+            <Text color="dimmed" mt="md">
+              Build fully functional accessible web applications faster than ever – Mantine includes more than 120
+              customizable components and hooks to cover you in any situation
+            </Text>
 
-        <Button variant="gradient" size="xl" radius="xl" className={classes.control}>
-          Get started
-        </Button>
+            <List
+              mt={30}
+              spacing="sm"
+              size="sm"
+              icon={
+                <ThemeIcon size={20} radius="xl">
+                  <IconCheck size={12} stroke={1.5} />
+                </ThemeIcon>
+              }
+            >
+              <List.Item>
+                <b>TypeScript based</b> – build type safe applications, all components and hooks export types
+              </List.Item>
+              <List.Item>
+                <b>Free and open source</b> – all packages have MIT license, you can use Mantine in any project
+              </List.Item>
+              <List.Item>
+                <b>No annoying focus ring</b> – focus ring will appear only when user navigates with keyboard
+              </List.Item>
+            </List>
+
+            <Group mt={30}>
+              <Button radius="xl" size="md" className={classes.control}>
+                Get started
+              </Button>
+              <Button variant="default" radius="xl" size="md" className={classes.control}>
+                Source code
+              </Button>
+            </Group>
+          </div>
+          <Image src="https://ui.mantine.dev/_next/static/media/image.9a65bd94.svg" className={classes.image} alt="" />
+        </div>
       </Container>
     </div>
   )

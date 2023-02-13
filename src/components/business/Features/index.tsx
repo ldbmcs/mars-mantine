@@ -1,83 +1,103 @@
-import { createStyles, Title, SimpleGrid, Text, Button, ThemeIcon, Grid, Col } from '@mantine/core'
-import { IconReceiptOff, IconFlame, IconCircleDotted, IconFileCode } from '@tabler/icons'
+import { createStyles, Badge, Group, Title, Text, Card, SimpleGrid, Container, Box } from '@mantine/core'
+import { IconGauge, IconUser, IconCookie } from '@tabler/icons'
+import React from 'react'
 
-const useStyles = createStyles((theme) => ({
-  wrapper: {
-    padding: `${theme.spacing.xl * 2}px ${theme.spacing.xl}px`,
-  },
-
-  title: {
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    fontSize: 36,
-    fontWeight: 900,
-    lineHeight: 1.1,
-    marginBottom: theme.spacing.md,
-    color: theme.colorScheme === 'dark' ? theme.white : theme.black,
-  },
-}))
-
-const features = [
+const mockdata = [
   {
-    icon: IconReceiptOff,
-    title: 'Free and open source',
-    description: 'All packages are published under MIT license, you can use Mantine in any project',
+    title: 'Extreme performance',
+    description:
+      'This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit',
+    icon: IconGauge,
   },
   {
-    icon: IconFileCode,
-    title: 'TypeScript based',
-    description: 'Build type safe applications, all components and hooks export types',
+    title: 'Privacy focused',
+    description:
+      'People say it can run at the same speed as lightning striking, Its icy body is so cold, it will not melt even if it is immersed in magma',
+    icon: IconUser,
   },
   {
-    icon: IconCircleDotted,
-    title: 'No annoying focus ring',
-    description: 'With new :focus-visible selector focus ring will appear only when user navigates with keyboard',
-  },
-  {
-    icon: IconFlame,
-    title: 'Flexible',
-    description: 'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
+    title: 'No third parties',
+    description: 'They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves',
+    icon: IconCookie,
   },
 ]
 
-export function Features() {
-  const { classes } = useStyles()
+const useStyles = createStyles((theme) => ({
+  title: {
+    fontSize: 34,
+    fontWeight: 900,
+    [theme.fn.smallerThan('sm')]: {
+      fontSize: 24,
+    },
+  },
 
-  const items = features.map((feature) => (
-    <div key={feature.title}>
-      <ThemeIcon size={44} radius="md" variant="gradient" gradient={{ deg: 133, from: 'blue', to: 'cyan' }}>
-        <feature.icon size={26} stroke={1.5} />
-      </ThemeIcon>
-      <Text size="lg" mt="sm" weight={500}>
+  description: {
+    maxWidth: 600,
+    margin: 'auto',
+
+    '&::after': {
+      content: '""',
+      display: 'block',
+      backgroundColor: theme.fn.primaryColor(),
+      width: 45,
+      height: 2,
+      marginTop: theme.spacing.sm,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+  },
+
+  card: {
+    border: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1]}`,
+  },
+
+  cardTitle: {
+    '&::after': {
+      content: '""',
+      display: 'block',
+      backgroundColor: theme.fn.primaryColor(),
+      width: 45,
+      height: 2,
+      marginTop: theme.spacing.sm,
+    },
+  },
+}))
+
+export function Features() {
+  const { classes, theme } = useStyles()
+  const features = mockdata.map((feature) => (
+    <Card key={feature.title} shadow="md" radius="md" className={classes.card} p="xl">
+      <feature.icon size={50} stroke={2} color={theme.fn.primaryColor()} />
+      <Text size="lg" weight={500} className={classes.cardTitle} mt="md">
         {feature.title}
       </Text>
-      <Text color="dimmed" size="sm">
+      <Text size="sm" color="dimmed" mt="sm">
         {feature.description}
       </Text>
-    </div>
+    </Card>
   ))
-
   return (
-    <div className={classes.wrapper} id="features">
-      <Grid gutter={80}>
-        <Col span={12} md={5}>
-          <Title className={classes.title} order={2}>
-            A fully featured React components library for your next project
-          </Title>
-          <Text color="dimmed">
-            Build fully functional accessible web applications faster than ever – Mantine includes more than 120
-            customizable components and hooks to cover you in any situation
-          </Text>
+    <Box bg="#f8f9fa" id="features">
+      <Container size="lg" py="xl">
+        <Group position="center">
+          <Badge variant="filled" size="lg">
+            Best company ever
+          </Badge>
+        </Group>
 
-          <Button variant="gradient" gradient={{ deg: 133, from: 'blue', to: 'cyan' }} size="lg" radius="md" mt="xl">
-            Get started
-          </Button>
-        </Col>
-        <Col span={12} md={7}>
-          <SimpleGrid cols={2} spacing={30} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
-            {items}
-          </SimpleGrid>
-        </Col>
-      </Grid>
-    </div>
+        <Title order={2} className={classes.title} align="center" mt="sm">
+          Integrate effortlessly with any technology stack
+        </Title>
+
+        <Text color="dimmed" className={classes.description} align="center" mt="md">
+          Every once in a while, you’ll see a Golbat that’s missing some fangs. This happens when hunger drives it to
+          try biting a Steel-type Pokémon.
+        </Text>
+
+        <SimpleGrid cols={3} spacing="xl" mt={50} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
+          {features}
+        </SimpleGrid>
+      </Container>
+    </Box>
   )
 }

@@ -78,20 +78,20 @@ export default function HomePage() {
   const siteHeaderLinks = {
     links: [
       {
+        link: '#heroHeader',
+        label: 'HeroHeader',
+      },
+      {
         link: '#features',
         label: 'Features',
       },
       {
-        link: '/pricing',
-        label: 'Pricing',
-      },
-      {
-        link: '/learn',
-        label: 'Learn',
+        link: '#faq',
+        label: 'Faq',
       },
       {
         link: '#contactUs',
-        label: 'Community',
+        label: 'ContactUs',
       },
     ],
   }
