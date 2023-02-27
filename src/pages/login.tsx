@@ -42,7 +42,14 @@ const Login: FC = () => {
       }
     } catch (err: any) {
       const { graphQLErrors } = err
-      graphqlErrorCatch(graphQLErrors)
+      graphqlErrorCatch({
+        graphQLErrors,
+        mapping: new Map([
+          ['error.not_registered', '用户未注册'],
+          ['error.invalid_credentials', '用户名或密码错误'],
+        ]),
+        defaultMessage: '服务异常，请稍后再试',
+      })
     }
   }
   return (
