@@ -1,17 +1,18 @@
-import { Button, Container, Paper, PasswordInput, Text, TextInput, Title } from '@mantine/core'
-import { FC } from 'react'
+import { Anchor, Button, Container, Paper, PasswordInput, Text, TextInput, Title } from '@mantine/core'
+import React, { FC } from 'react'
 import { useForm } from '@mantine/form'
-import router from 'next/router'
 import { useSetRecoilState } from 'recoil'
 import appContext from '../service'
-import { Home } from 'config/constants/routerPath'
+import { Home, Signup } from 'config/constants/routerPath'
 import { stateCurrentUser } from 'states/users'
 import { graphqlErrorCatch } from '../utils'
 import { User, useSignInMutation } from 'types/domain'
+import { useRouter } from 'next/router'
 
 const Login: FC = () => {
   const setCurrentUser = useSetRecoilState(stateCurrentUser)
   const [signInMutation] = useSignInMutation()
+  const router = useRouter()
   const form = useForm({
     initialValues: {
       principal: '',
@@ -64,7 +65,10 @@ const Login: FC = () => {
         Mars
       </Title>
       <Text color="dimmed" size="sm" align="center" mt={5}>
-        Technology is changing our lives
+        Do not have an account yet?{' '}
+        <Anchor<'a'> href="#" size="sm" onClick={() => router.push(Signup)}>
+          Create account
+        </Anchor>
       </Text>
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
