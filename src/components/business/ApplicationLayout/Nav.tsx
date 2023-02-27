@@ -1,13 +1,12 @@
 import React, { FC, useState } from 'react'
 import { createStyles, Navbar } from '@mantine/core'
 import {
-  Icon2fa,
-  IconBellRinging,
-  IconDatabaseImport,
-  IconFingerprint,
-  IconKey,
-  IconReceipt2,
-  IconSettings,
+  IconBuildingCarousel,
+  IconContainer,
+  IconEdit,
+  IconInputSearch,
+  IconNavigation,
+  IconTimeline,
 } from '@tabler/icons'
 
 const useStyles = createStyles((theme, _params, getRef) => {
@@ -53,17 +52,16 @@ const useStyles = createStyles((theme, _params, getRef) => {
 })
 
 const data = [
-  { link: '', label: 'Notifications', icon: IconBellRinging },
-  { link: '', label: 'Billing', icon: IconReceipt2 },
-  { link: '', label: 'Security', icon: IconFingerprint },
-  { link: '', label: 'SSH Keys', icon: IconKey },
-  { link: '', label: 'Databases', icon: IconDatabaseImport },
-  { link: '', label: 'Authentication', icon: Icon2fa },
-  { link: '', label: 'Other Settings', icon: IconSettings },
+  { link: '', label: 'Inputs', icon: IconInputSearch },
+  { link: '', label: 'DatePickers', icon: IconTimeline },
+  { link: '', label: 'Overlay&Navigation', icon: IconNavigation },
+  { link: '', label: 'Content', icon: IconContainer },
+  { link: '', label: 'RichTextEditor', icon: IconEdit },
+  { link: '', label: 'Carousel', icon: IconBuildingCarousel },
 ]
 const Nav: FC = () => {
   const { classes, cx } = useStyles()
-  const [active, setActive] = useState('Billing')
+  const [active, setActive] = useState('Inputs')
 
   const links = data.map((item) => (
     <a
