@@ -7,3 +7,4 @@ export const Signup = '/signup'
 export const Inputs = `${Home}/inputs`
 export const DatePickers = `${Home}/date-pickers`
 export const RichTextEditor = `${Home}/rich-text-editor`
+export const Carousel = `${Home}/carousel`
