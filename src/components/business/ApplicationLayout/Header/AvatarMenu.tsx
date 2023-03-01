@@ -1,5 +1,5 @@
-import { Avatar, Menu, UnstyledButton } from '@mantine/core'
-import { IconLogout, IconSettings, IconUserCircle } from '@tabler/icons'
+import { Avatar, Group, Menu, UnstyledButton, Text } from '@mantine/core'
+import { IconChevronDown, IconLogout, IconSettings, IconUserCircle } from '@tabler/icons'
 import React from 'react'
 import { useRecoilState } from 'recoil'
 import { stateCurrentUser } from 'states/users'
@@ -25,9 +25,13 @@ const AvatarMenu = () => {
     <Menu width={150} shadow="md" position="bottom-end">
       <Menu.Target>
         <UnstyledButton>
-          <Avatar size={30} radius="xl" color="cyan">
-            {currentUser?.name || 'dcs'}
-          </Avatar>
+          <Group spacing={7}>
+            <Avatar color="cyan" src={currentUser?.name || 'Admin'} alt={currentUser?.name} radius="xl" size={20} />
+            <Text weight={500} size="sm" sx={{ lineHeight: 1 }} mr={3}>
+              {currentUser?.name || 'Admin'}
+            </Text>
+            <IconChevronDown size={12} stroke={1.5} />
+          </Group>
         </UnstyledButton>
       </Menu.Target>
       <Menu.Dropdown>

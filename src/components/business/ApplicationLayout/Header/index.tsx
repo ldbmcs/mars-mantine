@@ -1,6 +1,7 @@
 import React from 'react'
 import { Group, Header } from '@mantine/core'
 import { Logo } from 'components/ui'
+import AvatarMenu from 'components/business/ApplicationLayout/Header/AvatarMenu'
 
 const MarsHeader = () => (
   <Header height={52} px="lg" display="flex">
@@ -8,6 +9,7 @@ const MarsHeader = () => (
       <Group position="left" spacing="lg">
         <Logo />
       </Group>
+      <AvatarMenu />
     </Group>
   </Header>
 )
