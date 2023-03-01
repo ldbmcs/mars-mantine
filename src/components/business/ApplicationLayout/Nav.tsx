@@ -6,15 +6,25 @@ import {
   IconEdit,
   IconInputSearch,
   IconNavigation,
+  IconOverline,
   IconTimeline,
 } from '@tabler/icons'
-import { Carousel, Content, DatePickers, Inputs, Navigation, RichTextEditor } from 'config/constants/routerPath'
+import {
+  Carousel,
+  Content,
+  DatePickers,
+  Inputs,
+  Navigation,
+  Overlays,
+  RichTextEditor,
+} from 'config/constants/routerPath'
 import { useRouter } from 'next/router'
 
 const data = [
   { pathname: Inputs, label: 'Inputs', icon: <IconInputSearch /> },
   { pathname: DatePickers, label: 'DatePickers', icon: <IconTimeline /> },
   { pathname: Navigation, label: 'Navigation', icon: <IconNavigation /> },
+  { pathname: Overlays, label: 'Overlays', icon: <IconOverline /> },
   { pathname: Content, label: 'Content', icon: <IconContainer /> },
   { pathname: RichTextEditor, label: 'RichTextEditor', icon: <IconEdit /> },
   { pathname: Carousel, label: 'Carousel', icon: <IconBuildingCarousel /> },
