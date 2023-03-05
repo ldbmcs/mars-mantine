@@ -2,19 +2,21 @@ import React from 'react'
 import NextApp, { AppContext } from 'next/app'
 import Head from 'next/head'
 import { MantineProvider } from '@mantine/core'
-import { NotificationsProvider } from '@mantine/notifications'
 import { ApolloProvider } from '@apollo/client'
 import { RecoilRoot } from 'recoil'
 import { AppPropsWithLayout } from 'types/nextCustomType'
 import client from '../plugins/apollo/client'
 import themeOverride from 'config/themeOverride'
+import { NotificationsProvider } from '@mantine/notifications'
 
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout = Component.getLayout ?? ((page) => page)
+  const { pageTitle } = pageProps
+
   return (
     <>
       <Head>
-        <title>Mantine next example</title>
+        <title>{pageTitle || 'Mantine next example'}</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
         <link rel="shortcut icon" href="/favicon.svg" />
       </Head>
