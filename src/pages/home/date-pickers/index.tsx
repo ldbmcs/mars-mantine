@@ -1,20 +1,19 @@
 import React, { ReactElement } from 'react'
-import { Center, SimpleGrid } from '@mantine/core'
+import { Card, Center, SimpleGrid } from '@mantine/core'
 import MarsLayout from 'components/business/ApplicationLayout'
 import { NextPageWithLayout } from 'types/nextCustomType'
-import { DatePicker, DateRangePicker, TimeInput, TimeRangeInput } from '@mantine/dates'
-import MarsCalendar from './MarsCalendar'
-import MarsRangeCalendar from './MarsRangeCalendar'
+import { Calendar, DatePicker, TimeInput } from '@mantine/dates'
 
 const Inputs: NextPageWithLayout = () => (
   <Center>
     <SimpleGrid cols={2}>
-      <DatePicker placeholder="Pick date" label="Date picker" withAsterisk />
-      <DateRangePicker label="Date range picker" placeholder="Pick dates range" />
+      <DatePicker placeholder="Pick date" />
+      <DatePicker type="range" placeholder="Pick dates range" />
       <TimeInput label="Time input" />
-      <TimeRangeInput label="Time range input" clearable />
-      <MarsCalendar />
-      <MarsRangeCalendar />
+      <TimeInput type="range" label="Time range input" />
+      <Card withBorder>
+        <Calendar />
+      </Card>
     </SimpleGrid>
   </Center>
 )
