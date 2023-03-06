@@ -1,17 +1,17 @@
-import { createStyles, Text, Container, ActionIcon, Group } from '@mantine/core'
-import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons'
+import { createStyles, Text, Container, ActionIcon, Group, rem } from '@mantine/core'
+import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react'
 import { MantineLogo } from '@mantine/ds'
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    paddingTop: theme.spacing.xl * 2,
-    paddingBottom: theme.spacing.xl * 2,
+    paddingTop: `calc(${theme.spacing.xl} * 2)`,
+    paddingBottom: `calc(${theme.spacing.xl} * 2)`,
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
-    borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]}`,
+    borderTop: `${rem(1)} solid ${theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]}`,
   },
 
   logo: {
-    maxWidth: 200,
+    maxWidth: rem(200),
 
     [theme.fn.smallerThan('sm')]: {
       display: 'flex',
@@ -21,7 +21,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   description: {
-    marginTop: 5,
+    marginTop: rem(5),
 
     [theme.fn.smallerThan('sm')]: {
       marginTop: theme.spacing.xs,
@@ -49,15 +49,15 @@ const useStyles = createStyles((theme) => ({
   },
 
   wrapper: {
-    width: 160,
+    width: rem(160),
   },
 
   link: {
     display: 'block',
     color: theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[6],
     fontSize: theme.fontSizes.sm,
-    paddingTop: 3,
-    paddingBottom: 3,
+    paddingTop: rem(3),
+    paddingBottom: rem(3),
 
     '&:hover': {
       textDecoration: 'underline',
@@ -68,7 +68,7 @@ const useStyles = createStyles((theme) => ({
     fontSize: theme.fontSizes.lg,
     fontWeight: 700,
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    marginBottom: theme.spacing.xs / 2,
+    marginBottom: `calc(${theme.spacing.xs} / 2)`,
     color: theme.colorScheme === 'dark' ? theme.white : theme.black,
   },
 
@@ -79,7 +79,7 @@ const useStyles = createStyles((theme) => ({
     marginTop: theme.spacing.xl,
     paddingTop: theme.spacing.xl,
     paddingBottom: theme.spacing.xl,
-    borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]}`,
+    borderTop: `${rem(1)} solid ${theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]}`,
 
     [theme.fn.smallerThan('sm')]: {
       flexDirection: 'column',

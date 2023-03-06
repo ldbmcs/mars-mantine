@@ -1,5 +1,5 @@
 import { Avatar, Group, Menu, UnstyledButton, Text } from '@mantine/core'
-import { IconChevronDown, IconLogout, IconSettings, IconUserCircle } from '@tabler/icons'
+import { IconChevronDown, IconLogout, IconSettings, IconUserCircle } from '@tabler/icons-react'
 import React from 'react'
 import { useRecoilState } from 'recoil'
 import { stateCurrentUser } from 'states/users'

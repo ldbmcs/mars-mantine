@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { createStyles, Navbar } from '@mantine/core'
+import { createStyles, Navbar, getStylesRef } from '@mantine/core'
 import {
   IconBuildingCarousel,
   IconContainer,
@@ -8,7 +8,7 @@ import {
   IconNavigation,
   IconOverline,
   IconTimeline,
-} from '@tabler/icons'
+} from '@tabler/icons-react'
 import {
   Carousel,
   Content,
@@ -19,12 +19,12 @@ import {
   RichTextEditor,
 } from 'config/constants/routerPath'
 
-const useStyles = createStyles((theme, _params, getRef) => {
-  const icon = getRef('icon')
+const useStyles = createStyles((theme, _params) => {
+  const icon = getStylesRef('icon')
   return {
     header: {
       paddingBottom: theme.spacing.md,
-      marginBottom: theme.spacing.md * 1.5,
+      marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
       borderBottom: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]}`,
     },
 

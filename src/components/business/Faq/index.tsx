@@ -2,8 +2,8 @@ import { createStyles, Image, Accordion, Grid, Col, Container, Title } from '@ma
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    paddingTop: theme.spacing.xl * 2,
-    paddingBottom: theme.spacing.xl * 2,
+    paddingTop: `calc(${theme.spacing.xl} * 2)`,
+    paddingBottom: `calc(${theme.spacing.xl} * 2)`,
   },
 
   title: {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Stack, Tabs, Text } from '@mantine/core'
-import { IconMessageCircle, IconPhoto, IconSettings } from '@tabler/icons'
+import { IconMessageCircle, IconPhoto, IconSettings } from '@tabler/icons-react'
 
 const TabsSection = () => {
   return (

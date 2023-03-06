@@ -1,6 +1,6 @@
 import React from 'react'
 import { Stack, Text, Timeline } from '@mantine/core'
-import { IconGitBranch, IconGitCommit, IconGitPullRequest, IconMessageDots } from '@tabler/icons'
+import { IconGitBranch, IconGitCommit, IconGitPullRequest, IconMessageDots } from '@tabler/icons-react'
 
 const TimelineContent = () => {
   return (

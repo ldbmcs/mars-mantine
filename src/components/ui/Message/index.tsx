@@ -1,5 +1,5 @@
 import { showNotification } from '@mantine/notifications'
-import { IconCheck, IconX } from '@tabler/icons'
+import { IconCheck, IconX } from '@tabler/icons-react'
 
 const message = {
   success(message: string, title?: string) {
