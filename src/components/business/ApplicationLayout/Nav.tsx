@@ -2,7 +2,8 @@ import React, { FC } from 'react'
 import { Center, Navbar, NavLink } from '@mantine/core'
 import {
   IconBuildingCarousel,
-  IconContainer, IconDashboard,
+  IconContainer,
+  IconDashboard,
   IconEdit,
   IconInputSearch,
   IconNavigation,
@@ -12,13 +13,15 @@ import {
 import {
   Carousel,
   Content,
-  DatePickers, Home,
+  DatePickers,
+  Home,
   Inputs,
   Navigation,
   Overlays,
   RichTextEditor,
 } from 'config/constants/routerPath'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 const data = [
   { pathname: Home, label: 'Dashboard', icon: <IconDashboard /> },
@@ -33,17 +36,17 @@ const data = [
 const Nav: FC = () => {
   const { pathname: currentPath } = useRouter()
   const links = data.map((item) => (
-    <NavLink
-      label={item.label}
-      component="a"
-      px="sm"
-      py="xs"
-      key={item.label}
-      href={item.pathname}
-      variant="light"
-      active={currentPath === item.pathname}
-      icon={<Center style={{ width: '18px' }}>{item.icon}</Center>}
-    />
+    <Link href={item.pathname} passHref key={item.label}>
+      <NavLink
+        px="sm"
+        py="xs"
+        variant="light"
+        component="a"
+        label={item.label}
+        active={currentPath === item.pathname}
+        icon={<Center style={{ width: '20px' }}>{item.icon}</Center>}
+      />
+    </Link>
   ))
 
   return (
