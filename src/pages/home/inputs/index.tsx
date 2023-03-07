@@ -67,7 +67,7 @@ const Inputs: NextPageWithLayout = () => (
 )
 
 Inputs.getLayout = function getLayout(page: ReactElement) {
-  return <MarsLayout>{page}</MarsLayout>
+  return <MarsLayout reverseDisplay>{page}</MarsLayout>
 }
 
 export async function getServerSideProps() {

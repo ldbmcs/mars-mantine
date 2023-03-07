@@ -7,6 +7,7 @@ import { RecoilRoot } from 'recoil'
 import { AppPropsWithLayout } from 'types/nextCustomType'
 import client from '../plugins/apollo/client'
 import themeOverride from 'config/themeOverride'
+import { Notifications } from '@mantine/notifications'
 
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout = Component.getLayout ?? ((page) => page)
@@ -23,6 +24,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
       <RecoilRoot>
         <ApolloProvider client={client}>
           <MantineProvider withGlobalStyles withNormalizeCSS theme={{ ...themeOverride }}>
+            <Notifications position="top-center" />
             {getLayout(<Component {...pageProps} />, pageProps)}
           </MantineProvider>
         </ApolloProvider>

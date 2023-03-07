@@ -25,7 +25,7 @@ Overlays.getLayout = function getLayout(page: ReactElement) {
 export async function getServerSideProps() {
   return {
     props: {
-      pageTitle: 'Content',
+      pageTitle: 'Overlays',
     },
   }
 }

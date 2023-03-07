@@ -9,7 +9,7 @@ type Props = {
 }
 
 const MarsLayout = (props: PropsWithChildren<Props>) => {
-  const { children } = props
+  const { reverseDisplay, children } = props
 
   return (
     <WithUserInfoLayout>
@@ -19,6 +19,14 @@ const MarsLayout = (props: PropsWithChildren<Props>) => {
         asideOffsetBreakpoint="sm"
         navbar={<Nav />}
         header={<MarsHeader />}
+        styles={(theme) => ({
+          root:
+            theme.colorScheme === 'dark'
+              ? {}
+              : {
+                  background: reverseDisplay ? theme.colors.gray[0] : theme.white,
+                },
+        })}
       >
         <div className="relative h-full">{children}</div>
       </AppShell>

@@ -4,7 +4,7 @@ import MarsLayout from 'components/business/ApplicationLayout'
 import { NextPageWithLayout } from 'types/nextCustomType'
 import { Calendar, DatePicker, TimeInput } from '@mantine/dates'
 
-const Inputs: NextPageWithLayout = () => (
+const DataPickers: NextPageWithLayout = () => (
   <Center>
     <SimpleGrid cols={2}>
       <DatePicker placeholder="Pick date" />
@@ -18,16 +18,16 @@ const Inputs: NextPageWithLayout = () => (
   </Center>
 )
 
-Inputs.getLayout = function getLayout(page: ReactElement) {
+DataPickers.getLayout = function getLayout(page: ReactElement) {
   return <MarsLayout>{page}</MarsLayout>
 }
 
 export async function getServerSideProps() {
   return {
     props: {
-      pageTitle: 'Inputs',
+      pageTitle: 'DataPickers',
     },
   }
 }
 
-export default Inputs
+export default DataPickers

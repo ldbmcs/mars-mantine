@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { Center, Navbar, NavLink } from '@mantine/core'
 import {
   IconBuildingCarousel,
-  IconContainer,
+  IconContainer, IconDashboard,
   IconEdit,
   IconInputSearch,
   IconNavigation,
@@ -12,7 +12,7 @@ import {
 import {
   Carousel,
   Content,
-  DatePickers,
+  DatePickers, Home,
   Inputs,
   Navigation,
   Overlays,
@@ -21,6 +21,7 @@ import {
 import { useRouter } from 'next/router'
 
 const data = [
+  { pathname: Home, label: 'Dashboard', icon: <IconDashboard /> },
   { pathname: Inputs, label: 'Inputs', icon: <IconInputSearch /> },
   { pathname: DatePickers, label: 'DatePickers', icon: <IconTimeline /> },
   { pathname: Navigation, label: 'Navigation', icon: <IconNavigation /> },
