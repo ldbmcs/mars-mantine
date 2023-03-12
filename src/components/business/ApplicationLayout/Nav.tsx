@@ -25,7 +25,7 @@ const data = [
 const Nav: FC = () => {
   const { pathname: currentPath } = useRouter()
   const links = data.map((item) => (
-    <Link href={item.pathname} passHref key={item.label}>
+    <Link href={item.pathname} passHref key={item.label} style={{ textDecoration: 'none' }}>
       <NavLink
         px="sm"
         py="xs"
